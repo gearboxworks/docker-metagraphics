@@ -1,0 +1,75 @@
+
+################################################################################
+# WARNING: This file has been auto-generated. DO NOT EDIT: WARNING
+# Created on 2020-05-22T11:41:35+1000, using template:DockerfileRuntime.tmpl and json:gearbox.json
+# Plain Docker container for docker-metagraphics based off gearboxworks/gearbox-base:alpine-3.11
+
+ARG VERSION=1.0.0
+
+# 1. First reference the gearbox-base image.
+FROM gearboxworks/gearbox-base:alpine-3.11
+ARG VERSION
+ARG GEARBOX_ENTRYPOINT
+ARG GEARBOX_ENTRYPOINT_ARGS
+
+# 2. Set up env variables.
+MAINTAINER Gearbox Team <team@gearbox.works>
+ENV GEARBOX_CONTAINER_NAME "docker-metagraphics"
+ENV GEARBOX_CONTAINER_VERSION ${VERSION}
+ENV GEARBOX_ENTRYPOINT ${GEARBOX_ENTRYPOINT}
+ENV GEARBOX_ENTRYPOINT_ARGS ${GEARBOX_ENTRYPOINT_ARGS}
+LABEL gearbox.json='{"schema": "gear-1","meta": {"state": "production","organization": "gearboxworks","name": "metagraphics","label": "Meta Graphics","maintainer": "Gearbox Team <team@gearbox.works>","class": "graphics","refurl": ""},"build": {"ports": {},"run": "","args": "","env": {},"network": "--network gearboxnet","volumes": "","restart": "--restart no"},"run": {"commands": {"default": "/usr/bin/magick","Magick++-config": "/usr/bin/Magick++-config","MagickCore-config": "/usr/bin/MagickCore-config","MagickWand-config": "/usr/bin/MagickWand-config","acyclic": "/usr/bin/acyclic","animate": "/usr/bin/animate","annotate": "/usr/bin/annotate","bcomps": "/usr/bin/bcomps","ccomps": "/usr/bin/ccomps","circo": "/usr/bin/circo","cjpeg": "/usr/bin/cjpeg","cluster": "/usr/bin/cluster","compare": "/usr/bin/compare","composite": "/usr/bin/composite","conjure": "/usr/bin/conjure","convert": "/usr/bin/convert","corepdf": "/usr/bin/corepdf","cwebp": "/usr/bin/cwebp","diff-pdf": "/usr/bin/diff-pdf","dijkstra": "/usr/bin/dijkstra","display": "/usr/bin/display","djpeg": "/usr/bin/djpeg","dot": "/usr/bin/dot","dot2gxl": "/usr/bin/dot2gxl","dot_builtins": "/usr/bin/dot_builtins","dotty": "/usr/bin/dotty","dwebp": "/usr/bin/dwebp","edgepaint": "/usr/bin/edgepaint","exiftool": "/usr/bin/exiftool","exiftran": "/usr/bin/exiftran","fax2ps": "/usr/bin/fax2ps","fax2tiff": "/usr/bin/fax2tiff","fdp": "/usr/bin/fdp","fix-qdf": "/usr/bin/fix-qdf","gc": "/usr/bin/gc","gd2copypal": "/usr/bin/gd2copypal","gd2togif": "/usr/bin/gd2togif","gd2topng": "/usr/bin/gd2topng","gdcmpgif": "/usr/bin/gdcmpgif","gdparttopng": "/usr/bin/gdparttopng","gdtopng": "/usr/bin/gdtopng","gif2rgb": "/usr/bin/gif2rgb","gif2webp": "/usr/bin/gif2webp","gifbuild": "/usr/bin/gifbuild","gifclrmp": "/usr/bin/gifclrmp","gifdiff": "/usr/bin/gifdiff","giffix": "/usr/bin/giffix","gifsicle": "/usr/bin/gifsicle","giftext": "/usr/bin/giftext","giftogd2": "/usr/bin/giftogd2","giftool": "/usr/bin/giftool","gifview": "/usr/bin/gifview","gm": "/usr/bin/gm","gml2gv": "/usr/bin/gml2gv","gnuplot": "/usr/bin/gnuplot","graphml2gv": "/usr/bin/graphml2gv","gv2gml": "/usr/bin/gv2gml","gv2gxl": "/usr/bin/gv2gxl","gvcolor": "/usr/bin/gvcolor","gvgen": "/usr/bin/gvgen","gvmap": "/usr/bin/gvmap","gvmap.sh": "/usr/bin/gvmap.sh","gvpack": "/usr/bin/gvpack","gvpr": "/usr/bin/gvpr","gxl2dot": "/usr/bin/gxl2dot","gxl2gv": "/usr/bin/gxl2gv","identify": "/usr/bin/identify","img2webp": "/usr/bin/img2webp","import": "/usr/bin/import","jpegoptim": "/usr/bin/jpegoptim","jpegtran": "/usr/bin/jpegtran","lefty": "/usr/bin/lefty","lneato": "/usr/bin/lneato","magick": "/usr/bin/magick","magick-script": "/usr/bin/magick-script","mm2gv": "/usr/bin/mm2gv","mogrify": "/usr/bin/mogrify","montage": "/usr/bin/montage","muraster": "/usr/bin/muraster","mutool": "/usr/bin/mutool","neato": "/usr/bin/neato","nop": "/usr/bin/nop","opj_compress": "/usr/bin/opj_compress","opj_decompress": "/usr/bin/opj_decompress","opj_dump": "/usr/bin/opj_dump","optipng": "/usr/bin/optipng","osage": "/usr/bin/osage","pal2rgb": "/usr/bin/pal2rgb","patchwork": "/usr/bin/patchwork","pdfgrep": "/usr/bin/pdfgrep","png-fix-itxt": "/usr/bin/png-fix-itxt","pngcrush": "/usr/bin/pngcrush","pngfix": "/usr/bin/pngfix","pngquant": "/usr/bin/pngquant","pngtogd": "/usr/bin/pngtogd","pngtogd2": "/usr/bin/pngtogd2","ppm2tiff": "/usr/bin/ppm2tiff","prune": "/usr/bin/prune","qpdf": "/usr/bin/qpdf","raw2tiff": "/usr/bin/raw2tiff","rdjpgcom": "/usr/bin/rdjpgcom","sccmap": "/usr/bin/sccmap","sfdp": "/usr/bin/sfdp","stream": "/usr/bin/stream","tiff2bw": "/usr/bin/tiff2bw","tiff2pdf": "/usr/bin/tiff2pdf","tiff2ps": "/usr/bin/tiff2ps","tiff2rgba": "/usr/bin/tiff2rgba","tiffcmp": "/usr/bin/tiffcmp","tiffcp": "/usr/bin/tiffcp","tiffcrop": "/usr/bin/tiffcrop","tiffdither": "/usr/bin/tiffdither","tiffdump": "/usr/bin/tiffdump","tiffinfo": "/usr/bin/tiffinfo","tiffmedian": "/usr/bin/tiffmedian","tiffset": "/usr/bin/tiffset","tiffsplit": "/usr/bin/tiffsplit","tjbench": "/usr/bin/tjbench","tred": "/usr/bin/tred","twopi": "/usr/bin/twopi","unflatten": "/usr/bin/unflatten","vimdot": "/usr/bin/vimdot","webpinfo": "/usr/bin/webpinfo","webpmux": "/usr/bin/webpmux","webpng": "/usr/bin/webpng","wrjpgcom": "/usr/bin/wrjpgcom","xpdf": "/usr/bin/xpdf","zlib-flate": "/usr/bin/zlib-flate"}},"project": {},"extensions": {},"versions": {"1.0.0": {"majorversion": "1.0","latest": true,"ref": "","base": "gearboxworks/gearbox-base:alpine-3.11"}}}'
+LABEL gearbox.version='1.0.0'
+ENV GEARBOX_VERSION "1.0.0"
+LABEL container.class="graphics"
+ENV GEARBOX_CLASS "graphics"
+LABEL container.label="Meta Graphics"
+ENV GEARBOX_LABEL "Meta Graphics"
+LABEL container.maintainer="Gearbox Team <team@gearbox.works>"
+ENV GEARBOX_MAINTAINER "Gearbox Team <team@gearbox.works>"
+LABEL container.name="metagraphics"
+ENV GEARBOX_NAME "metagraphics"
+LABEL container.organization="gearboxworks"
+ENV GEARBOX_ORGANIZATION "gearboxworks"
+LABEL container.refurl=""
+ENV GEARBOX_REFURL ""
+LABEL container.state="production"
+ENV GEARBOX_STATE "production"
+LABEL container.args=""
+ENV GEARBOX_ARGS ""
+# SKIP env
+LABEL container.network="--network gearboxnet"
+ENV GEARBOX_NETWORK "--network gearboxnet"
+LABEL container.ports="map[]"
+ENV GEARBOX_PORTS "map[]"
+LABEL container.restart="--restart no"
+ENV GEARBOX_RESTART "--restart no"
+LABEL container.run=""
+ENV GEARBOX_RUN ""
+LABEL container.volumes=""
+ENV GEARBOX_VOLUMES ""
+LABEL container.base="gearboxworks/gearbox-base:alpine-3.11"
+ENV GEARBOX_BASE "gearboxworks/gearbox-base:alpine-3.11"
+LABEL container.latest="true"
+ENV GEARBOX_LATEST "true"
+LABEL container.majorversion="1.0"
+ENV GEARBOX_MAJORVERSION "1.0"
+LABEL container.ref=""
+ENV GEARBOX_REF ""
+
+# 3. Now copy the local files specific to this container.
+COPY build /etc/gearbox
+COPY versions/${VERSION}/build /etc/gearbox
+
+# 4. Run the base.sh script to set everything up.
+RUN /bin/sh /etc/gearbox/build/base.sh
+
+# 5. Run the metagraphics.sh script to set everything up.
+RUN /bin/sh /etc/gearbox/build/metagraphics.sh
+
+# 6. Expose ports.
+EXPOSE 22 9970 
+WORKDIR /home/gearbox/projects
+
+# END
+################################################################################
